@@ -45,6 +45,12 @@ const links: ProjectLink[] = [
     description: "View source code on GitHub"
   },
   {
+    label: "Demo",
+    url: "http://www.ai4as.cn/Tool/HABLER",
+    icon: <Play className="w-4 h-4" />,
+    description: "Try the interactive demo"
+  },
+  {
     label: "DOI",
     url: "https://dx.doi.org/10.2139/ssrn.5334337",
     icon: <LinkIcon className="w-4 h-4" />,
@@ -218,38 +224,9 @@ function App() {
                 <p className="mb-3">
                   <strong>We aim to build a mutual platform with state-of-the-art models and outstanding achievements.</strong> If you are willing to integrate your animal detection, segmentation, and behavior recognition models into HABLer, please contact us at:
                 </p>
-                <a href="mailto:ai4as@caas.cn" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium">
+                <a href="mailto:ai4as@caas.cn" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-xl font-bold">
                   ai4as@caas.cn
                 </a>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        <Separator />
-
-        {/* Demo Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="space-y-4"
-        >
-          <h2 className="text-2xl font-semibold text-foreground">Interactive Demo</h2>
-          <div className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900 dark:to-blue-900 flex items-center justify-center group cursor-pointer border"
-            onClick={() => window.open('http://www.ai4as.cn/Tool/HABLER', '_blank')}
-          >
-            <div className="text-center space-y-4">
-              <div className="bg-primary/10 flex items-center justify-center rounded-full backdrop-blur-md w-24 h-24 mx-auto group-hover:scale-110 transition-transform">
-                <div className="flex items-center justify-center bg-gradient-to-b from-primary/30 to-primary shadow-md rounded-full w-16 h-16">
-                  <Play className="w-8 h-8 text-white fill-white" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">Try HABLer Live</h3>
-                <p className="text-sm text-muted-foreground">
-                  Experience the interactive annotation agent with your own animal behavior videos
-                </p>
               </div>
             </div>
           </div>
@@ -462,22 +439,33 @@ function App() {
         </motion.section>
 
         {/* Footer */}
-        <footer className="text-center text-muted-foreground text-sm pt-8 border-t">
-          <p>
-            HABLer is open for all practitioners to promote generative-AI applications in precision livestock farming.
-          </p>
-          <p className="mt-2">
-            For questions and collaboration, please visit the{" "}
-            <a
-              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5334337"
-              className="text-primary hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              SSRN page
-            </a>
-            .
-          </p>
+        <footer className="pt-8 border-t">
+          <div className="text-muted-foreground text-base">
+            <p className="mb-4">
+              HABLer is open for all practitioners to promote generative-AI applications in precision livestock farming.
+            </p>
+            <p className="mb-6">
+              For questions and collaboration, please visit the{" "}
+              <a
+                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5334337"
+                className="text-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SSRN page
+              </a>
+              .
+            </p>
+            <div className="text-foreground text-lg">
+              <strong>Contact Us:</strong>{" "}
+              <a
+                href="mailto:ai4as@caas.cn"
+                className="text-primary hover:text-primary/80 transition-colors font-bold text-xl"
+              >
+                ai4as@caas.cn
+              </a>
+            </div>
+          </div>
         </footer>
       </div>
     </div>
