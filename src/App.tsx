@@ -101,10 +101,10 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-3">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-4">
               Humanoid Animal Behavior Labeler
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
               An Interactive Annotation Agent to Accelerate Ethological Applications in Precision Management of Animals Using Large Vision-Language Models
             </p>
           </motion.div>
@@ -193,7 +193,7 @@ function App() {
           transition={{ delay: 0.6 }}
           className="space-y-4"
         >
-          <h2 className="text-2xl font-semibold text-foreground">Abstract</h2>
+          <h2 className="text-3xl font-bold text-foreground">Abstract</h2>
           <div className="text-base leading-relaxed text-muted-foreground space-y-4">
             <p>
               Animal behavior annotation was critical for precision livestock management but was challenged by inconsistency of behavioral labeling, limited dataset quality, and expensive annotation processes. To overcome these issues, this study introduced the <strong>Humanoid Animal Behavior Labeler (HABLer)</strong>, integrated computer vision models, multimodal behavior recognition models, quantitative behavior metrics, and expert-driven corrections that formed a novel AI-assistant annotation workflow to save time and improve result consistency in animal behavior labeling task.
@@ -216,17 +216,25 @@ function App() {
           transition={{ delay: 0.7 }}
           className="space-y-4"
         >
-          <h2 className="text-2xl font-semibold text-foreground">Collaboration</h2>
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 p-6 rounded-lg border">
-            <div className="flex items-start gap-3">
-              <Users className="w-6 h-6 text-primary mt-1" />
-              <div className="text-base leading-relaxed text-foreground">
-                <p className="mb-3">
-                  <strong>We aim to build a mutual platform with state-of-the-art models and outstanding achievements.</strong> If you are willing to integrate your animal detection, segmentation, and behavior recognition models into HABLer, please contact us at:
-                </p>
-                <a href="mailto:ai4as@caas.cn" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-xl font-bold">
-                  ai4as@caas.cn
-                </a>
+          <h2 className="text-3xl font-bold text-foreground mb-6">Collaboration</h2>
+          <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950 dark:via-purple-950 dark:to-pink-950 p-10 rounded-2xl border-2 border-primary/10 shadow-sm">
+            <div className="max-w-3xl">
+              <p className="text-xl font-semibold text-foreground mb-6 leading-relaxed">
+                We aim to build a mutual platform with state-of-the-art models and outstanding achievements.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                If you are willing to integrate your animal detection, segmentation, and behavior recognition models into HABLer, please contact us:
+              </p>
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-xl border-2 border-primary/20 inline-block">
+                <div className="flex items-center gap-3">
+                  <Users className="w-8 h-8 text-primary" />
+                  <a
+                    href="mailto:ai4as@caas.cn"
+                    className="text-primary hover:text-primary/80 transition-colors text-3xl font-bold"
+                  >
+                    ai4as@caas.cn
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -241,7 +249,7 @@ function App() {
           transition={{ delay: 0.85 }}
           className="space-y-4"
         >
-          <h2 className="text-2xl font-semibold text-foreground">Demo Videos</h2>
+          <h2 className="text-3xl font-bold text-foreground">Demo Videos</h2>
           <div className="grid gap-4">
             <div className="flex items-center gap-4 p-4 rounded-lg border bg-card hover:bg-card/50 transition-colors">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
@@ -300,7 +308,7 @@ function App() {
           transition={{ delay: 0.9 }}
           className="space-y-6"
         >
-          <h2 className="text-2xl font-semibold text-foreground">Tool Updates</h2>
+          <h2 className="text-3xl font-bold text-foreground">Tool Updates</h2>
 
           <div className="space-y-4">
             <div className="border-l-4 border-primary pl-4">
@@ -353,7 +361,7 @@ function App() {
           transition={{ delay: 0.95 }}
           className="space-y-4"
         >
-          <h2 className="text-2xl font-semibold text-foreground">User Comments and Contribution</h2>
+          <h2 className="text-3xl font-bold text-foreground">User Comments and Contribution</h2>
           <div className="space-y-4">
             <div className="bg-muted/50 p-4 rounded-lg border">
               <div className="flex items-start gap-3">
@@ -424,7 +432,7 @@ function App() {
           transition={{ delay: 1.0 }}
           className="space-y-4"
         >
-          <h2 className="text-2xl font-semibold text-foreground">Citation</h2>
+          <h2 className="text-3xl font-bold text-foreground">Citation</h2>
           <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
 {`@article{zhou2025habler,
   title={Humanoid Animal Behavior Labeler: An Interactive Annotation Agent to Accelerate
@@ -438,35 +446,6 @@ function App() {
           </pre>
         </motion.section>
 
-        {/* Footer */}
-        <footer className="pt-8 border-t">
-          <div className="text-muted-foreground text-base">
-            <p className="mb-4">
-              HABLer is open for all practitioners to promote generative-AI applications in precision livestock farming.
-            </p>
-            <p className="mb-6">
-              For questions and collaboration, please visit the{" "}
-              <a
-                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5334337"
-                className="text-primary hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                SSRN page
-              </a>
-              .
-            </p>
-            <div className="text-foreground text-lg">
-              <strong>Contact Us:</strong>{" "}
-              <a
-                href="mailto:ai4as@caas.cn"
-                className="text-primary hover:text-primary/80 transition-colors font-bold text-xl"
-              >
-                ai4as@caas.cn
-              </a>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   )
