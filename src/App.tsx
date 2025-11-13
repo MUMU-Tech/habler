@@ -209,51 +209,16 @@ function App() {
 
         <Separator />
 
-        {/* Key Results */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="space-y-6"
-        >
-          <h2 className="text-2xl font-semibold text-foreground">Key Results</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950 dark:to-blue-950 p-6 rounded-xl border"
-            >
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">65.7%</div>
-              <div className="text-sm text-foreground">Time saved in reviewing compared to manual labeling</div>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 p-6 rounded-xl border"
-            >
-              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">94%</div>
-              <div className="text-sm text-foreground">Overall accuracy on initial prediction of pig postures</div>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-cyan-50 to-teal-50 dark:from-cyan-950 dark:to-teal-950 p-6 rounded-xl border"
-            >
-              <div className="text-4xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">60%</div>
-              <div className="text-sm text-foreground">Annotation time saved in 125-minute pig posture task</div>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        <Separator />
-
         {/* Demo Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.7 }}
           className="space-y-4"
         >
           <h2 className="text-2xl font-semibold text-foreground">Interactive Demo</h2>
           <div className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900 dark:to-blue-900 flex items-center justify-center group cursor-pointer border"
-            onClick={() => window.open('http://47.99.151.88:9005/', '_blank')}
+            onClick={() => window.open('http://www.ai4as.cn/Tool/HABLER', '_blank')}
           >
             <div className="text-center space-y-4">
               <div className="bg-primary/10 flex items-center justify-center rounded-full backdrop-blur-md w-24 h-24 mx-auto group-hover:scale-110 transition-transform">
@@ -267,22 +232,6 @@ function App() {
                   Experience the interactive annotation agent with your own animal behavior videos
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Use Cases */}
-          <div className="grid md:grid-cols-2 gap-4 mt-6">
-            <div className="p-4 rounded-lg border bg-card">
-              <h4 className="font-semibold text-foreground mb-2">Pig Behavior Tracking</h4>
-              <p className="text-sm text-muted-foreground">
-                Automated annotation of pig postures including standing, sitting, and lying behaviors with high accuracy and consistency.
-              </p>
-            </div>
-            <div className="p-4 rounded-lg border bg-card">
-              <h4 className="font-semibold text-foreground mb-2">Cattle Monitoring</h4>
-              <p className="text-sm text-muted-foreground">
-                Efficient labeling of cattle behaviors for precision livestock management and welfare applications.
-              </p>
             </div>
           </div>
         </motion.section>
@@ -365,8 +314,8 @@ function App() {
               </div>
               <ul className="space-y-2 text-sm text-foreground">
                 <li>• New UI features for interactive conversion with large vision-language models</li>
-                <li>• Adding XXX and XXX large vision-language models in HABLer</li>
-                <li>• Adding posture classification model (Yolo-v8) for animal behavior reasoning</li>
+                <li>• Adding Qwen3-VL and DouBao Vision large vision-language models in HABLer</li>
+                <li>• Adding posture classification model (YOLOv8) for animal behavior reasoning</li>
                 <li>• Updating livestock detection models (re-trained with more data)</li>
               </ul>
             </div>
@@ -432,69 +381,6 @@ function App() {
                 <MessageSquare className="w-4 h-4" />
                 Leave a Comment
               </Button>
-            </div>
-          </div>
-        </motion.section>
-
-        <Separator />
-
-        {/* Release Plan / TODO */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="space-y-4"
-        >
-          <h2 className="text-2xl font-semibold text-foreground">Release Plan</h2>
-          <div className="space-y-3">
-            <div className="flex items-start gap-3 p-4 rounded-lg border bg-card">
-              <div className="mt-0.5">
-                <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">✓</div>
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-foreground">Paper Release</div>
-                <div className="text-sm text-muted-foreground">Published on SSRN - Available for download</div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 p-4 rounded-lg border bg-card">
-              <div className="mt-0.5">
-                <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">✓</div>
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-foreground">Demo Release</div>
-                <div className="text-sm text-muted-foreground">Interactive annotation tool available at ai4as.cn</div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 p-4 rounded-lg border bg-card/50">
-              <div className="mt-0.5">
-                <div className="w-5 h-5 rounded-full border-2 border-yellow-500 flex items-center justify-center text-yellow-500 text-xs">○</div>
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-foreground">Code Release</div>
-                <div className="text-sm text-muted-foreground">Source code and models - Coming soon on GitHub</div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 p-4 rounded-lg border bg-card/50">
-              <div className="mt-0.5">
-                <div className="w-5 h-5 rounded-full border-2 border-yellow-500 flex items-center justify-center text-yellow-500 text-xs">○</div>
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-foreground">Dataset Release</div>
-                <div className="text-sm text-muted-foreground">Annotated animal behavior dataset - In preparation</div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 p-4 rounded-lg border bg-card/50">
-              <div className="mt-0.5">
-                <div className="w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center text-gray-400 text-xs">○</div>
-              </div>
-              <div className="flex-1">
-                <div className="font-medium text-foreground">Video Tutorial</div>
-                <div className="text-sm text-muted-foreground">Usage guide and demonstration video - Planned</div>
-              </div>
             </div>
           </div>
         </motion.section>
