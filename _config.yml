@@ -1,0 +1,43 @@
+# Jekyll configuration for GitHub Pages
+title: "HABLer - Humanoid Animal Behavior Labeler"
+description: "Academic project page for HABLer paper"
+
+# Set baseurl to your repository name
+baseurl: "/habler"
+url: "https://mumu-tech.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+  - vite.config.ts
+  - tailwind.config.js
+  - tsconfig.json
+  - tsconfig.node.json
+  - eslint.config.js
+  - .gitignore
+  - src/
+
+# Include files
+include:
+  - _config.yml
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Markdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Site settings
+encoding: utf-8
+lang: en
