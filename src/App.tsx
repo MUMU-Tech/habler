@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 interface Author {
   name: string
@@ -44,12 +45,6 @@ const links: ProjectLink[] = [
     description: "View source code on GitHub"
   },
   {
-    label: "Demo",
-    url: "http://www.ai4as.cn/Tool/HABLER",
-    icon: <Play className="w-4 h-4" />,
-    description: "Try the interactive demo"
-  },
-  {
     label: "DOI",
     url: "https://dx.doi.org/10.2139/ssrn.5334337",
     icon: <LinkIcon className="w-4 h-4" />,
@@ -66,8 +61,32 @@ const tags = [
 ]
 
 function App() {
+  const [commentName, setCommentName] = useState("")
+  const [commentText, setCommentText] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleCommentSubmit = async () => {
+    if (!commentName.trim() || !commentText.trim()) {
+      alert("Please enter your name and comment")
+      return
+    }
+
+    setIsSubmitting(true)
+    try {
+      // 通过 mailto 打开邮件客户端发送评论
+      window.location.href = `mailto:ai4as@caas.cn?subject=HABLer User Comment from ${encodeURIComponent(commentName)}&body=${encodeURIComponent(commentText)}`
+
+      setCommentName("")
+      setCommentText("")
+    } catch (error) {
+      console.error("Failed to submit comment:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-base">
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-12">
         {/* Header */}
         <header className="space-y-6 text-center">
@@ -376,11 +395,45 @@ function App() {
               </div>
             </div>
 
-            <div className="flex justify-center mt-6">
-              <Button variant="outline" className="flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" />
-                Leave a Comment
-              </Button>
+            {/* Comment Form */}
+            <div className="bg-card p-6 rounded-lg border mt-6">
+              <h3 className="font-semibold text-foreground mb-4">Leave a Comment</h3>
+              <div className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    value={commentName}
+                    onChange={(e) => setCommentName(e.target.value)}
+                    placeholder="Your name"
+                    className="w-full px-4 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="comment" className="block text-sm font-medium text-foreground mb-2">
+                    Comment
+                  </label>
+                  <textarea
+                    id="comment"
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    placeholder="Share your thoughts or feedback..."
+                    rows={4}
+                    className="w-full px-4 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  />
+                </div>
+                <Button
+                  onClick={handleCommentSubmit}
+                  disabled={isSubmitting}
+                  className="flex items-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  {isSubmitting ? "Sending..." : "Submit Comment"}
+                </Button>
+              </div>
             </div>
           </div>
         </motion.section>
